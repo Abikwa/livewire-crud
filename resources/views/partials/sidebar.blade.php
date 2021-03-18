@@ -10,19 +10,10 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link {{ (request()->is('products'))  ? 'active' : '' }}" data-toggle="collapse" href="#collapseStudent" role="button" aria-expanded="false"
-                    aria-controls="collapseStudent">
+                <a class="nav-link {{ (request()->is('products'))  ? 'active' : '' }}" href="/products">
                     <span data-feather="briefcase"></span>
                     Product
                 </a>
-                <div class="collapse" id="collapseStudent">
-                    <div class="card card-body bg-secondary">
-                        <a class="nav-link" href="{{ url('products') }}">
-                            <span class="fas fa-plus"></span>
-                            Product
-                        </a>
-                    </div>
-                </div>
             </li>
 
         </ul>
