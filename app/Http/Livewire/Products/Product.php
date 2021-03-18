@@ -2,76 +2,58 @@
 
 namespace App\Http\Livewire\Products;
 
-use App\Models\Product as ProductModel;
 use Livewire\Component;
+use Illuminate\Validation\Rule;
+use App\Models\Product as ProductModel;
 
 class Product extends Component
 {
     public $products, $name, $price, $product_id;
-    public $updateMode = false;
-
+    protected $rules;
     public function render()
     {
         $this->products = ProductModel::all();
         return view('livewire.products.product')->layout('templates.default');
     }
 
-    private function resetInputFields(){
-        $this->name = '';
-        $this->email = '';
+    public function hydrate()
+    {
+        $this->rules = [
+
+            'name' => ['required',Rule::unique('products')->ignore($this->product_id)],
+            'price' => 'required|numeric',
+        ];
     }
+ 
 
     public function store()
-    {
-        $validatedDate = $this->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-        ]);
-
-        ProductModel::create($validatedDate);
-
+    { 
+        $validatedDate = $this->validate();
+        $this->product_id ?
+        $product = ProductModel::findorFail($this->product_id)
+        :
+        $product = new ProductModel();
+        $product->updateOrCreate($validatedDate);
+        $this->product_id ?
+        session()->flash('message', 'product Updated Successfully.') :
         session()->flash('message', 'product Created Successfully.');
-
-        $this->resetInputFields();
-
-        $this->emit('productStore'); // Close model to using to jquery
+        $this->reset();
+        $this->emit('productStore');
 
     }
 
     public function edit($id)
     {
-        $this->updateMode = true;
+        $this->reset();
         $product = ProductModel::findorFail($id);
         $this->product_id = $id;
         $this->name = $product->name;
-        $this->price = $product->price;
-        
+        $this->price = $product->price;        
     }
 
     public function cancel()
     {
-        $this->updateMode = false;
-        $this->resetInputFields();
-    }
-
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-        ]);
-
-        if ($this->product_id) {
-            $product = ProductModel::find($this->product_id);
-            $product->update([
-                'name' => $this->name,
-                'price' => $this->price,
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'product Updated Successfully.');
-            $this->resetInputFields();
-
-        }
+        $this->reset();
     }
 
     public function delete($id)
