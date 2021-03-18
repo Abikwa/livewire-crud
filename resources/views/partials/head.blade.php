@@ -4,7 +4,7 @@
     <meta name="description" content="training students manager">
     <meta name="author" content="Abibi Malo Maclou Aspen">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>App crud vue js</title>
+    <title>App crud livewire js</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
 
@@ -15,4 +15,5 @@
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     @yield('css')
+    @livewireStyles
 </head>
