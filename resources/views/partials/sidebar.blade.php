@@ -25,6 +25,13 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->is('chats')) ? 'active' : '' }}" href="{{ url('chats') }}">
+                    <span data-feather="archive"></span>
+                    Chat
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
