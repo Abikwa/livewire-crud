@@ -12,7 +12,7 @@
         @foreach($this->plancomptables as $value)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $value->codecompte }}</td>
+            <td @if($value->collectif) data-toggle="modal" data-target="#exampleModal" wire:click="parent({{ $value->id }})" type="button" @endif>{{ $value->codecompte }}</td>
             <td>{{ $value->libelle }}</td>
             <td>
             <button data-toggle="modal" data-target="#exampleModal" wire:click="edit({{ $value->id }})" class="btn btn-primary btn-sm">Edit</button>

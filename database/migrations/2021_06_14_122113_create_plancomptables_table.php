@@ -18,6 +18,8 @@ class CreatePlancomptablesTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('codecompte');
             $table->string('libelle');
+            $table->string('code');
+            $table->boolean('collectif');
             $table->foreign('parent_id')
                   ->references('id')
                   ->on('plancomptables')
