@@ -16,10 +16,14 @@
             <!-- End Of Sidebar Menu -->
 
             <!-- Main Content  -->  
-                    @yield('content')
+            @if(isset($slot))
+                {{ $slot}}
+            @endif
+            @yield('content')
             <!-- End Of Main Content -->
         </div>
     </div>
+    @livewireScripts
     <script src="{{ asset('js/jquery.min.js') }}"></script> 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
