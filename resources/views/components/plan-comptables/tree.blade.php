@@ -4,9 +4,9 @@
 <div>
     @foreach ($this->plancomptableTrees as $data)
         <div>  {{ $data->codecompte}} </div>
-        @foreach ($this->parent_data($data->id) as $value)
-            <div>  {{ $value->codecompte}} </div>
-        @endforeach
+        @if(count($data->comptes) > 0)
+            <x-plan-comptables.children :values="$data->comptes" />
+        @endif
         <hr>
     @endforeach
 </div>

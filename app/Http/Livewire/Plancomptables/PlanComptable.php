@@ -30,11 +30,7 @@ class PlanComptable extends Component
     {
         $this->parent_id = $parent_id;
     }
-
-    public function parent_data($parent_id)
-    {
-        return $this->plancomptables = PlancomptableModel::where('parent_id', $parent_id)->orderBy('codecompte')->get() ;
-    }
+ 
     public function form()
     {
         $this->reset();
