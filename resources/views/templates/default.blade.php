@@ -1,26 +1,15 @@
 <!doctype html>
 <html lang="en">
-
-<!-- Head -->
 @include('partials.head')
-<!-- End Of Head -->
-
 <body>
-    <!-- Navbar -->
     @include('partials.navbar')
-    <!-- End Of Navbar -->
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar Menu -->
             @include('partials.sidebar')
-            <!-- End Of Sidebar Menu -->
-
-            <!-- Main Content  -->  
             @if(isset($slot))
                 {{ $slot}}
             @endif
             @yield('content')
-            <!-- End Of Main Content -->
         </div>
     </div>
     @livewireScripts

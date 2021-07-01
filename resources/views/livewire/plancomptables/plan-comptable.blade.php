@@ -3,7 +3,7 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
      
     <div class="text-info">
-        <h1>Plan comptable</h1>
+        <h5>Plan comptable</h5>
     </div>
     <div class="text-right">
         <button type="button" class="btn btn-primary btn-sm" wire:click="ordonner">{{ $this->ordonner ? 'Ordonner les comptes' : 'lister les comptes' }}</button>
