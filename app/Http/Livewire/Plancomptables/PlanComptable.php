@@ -28,7 +28,7 @@ class PlanComptable extends Component
 
     public function ordonner()
     {
-        return 0;
+        return $this->ordonner = ($this->ordonner == true) ? false : true;
     }
     public function parent($parent_id)
     {

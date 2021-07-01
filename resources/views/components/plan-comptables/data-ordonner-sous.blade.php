@@ -1,15 +1,4 @@
-xc,v nmcv,
- <table class="table table-bordered mt-5">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Code compte</th>
-            <th>Libelle</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($this->plancomptableTrees as $value)
+        @foreach($values as $value)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td @if($value->collectif) data-toggle="modal" data-target="#exampleModal" wire:click="parent({{ $value->id }})" type="button" @endif>{{ $value->codecompte }}</td>
@@ -23,5 +12,3 @@ xc,v nmcv,
             <x-plan-comptables.data-ordonner-sous :values="$value->comptes" />
         @endif
         @endforeach
-    </tbody>
-</table>

@@ -6,7 +6,7 @@
         <h1>Plan comptable</h1>
     </div>
     <div class="text-right">
-        <button type="button" class="btn btn-primary btn-sm" wire:click="ordonner">Ordonner les comptes</button>
+        <button type="button" class="btn btn-primary btn-sm" wire:click="ordonner">{{ $this->ordonner ? 'Ordonner les comptes' : 'lister les comptes' }}</button>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" wire:click="form" data-target="#exampleModal">
             <i class="fa fa-plus"></i>
         </button>
