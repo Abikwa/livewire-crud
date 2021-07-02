@@ -15,7 +15,7 @@
              <?php ($loop->iteration == 1) ? $step = $value->step : ''; ?>
             @if($step != $value->step)
             <tr style="color : @if($this->somme('debut', $step) != $this->somme('credit', $step)) red @else blue @endif">
-                <td colspan="2">
+                <td colspan="3">
                     Equilibrer la piece
                 </td>
                 <td>{{ $this->somme('debut', $step) }}</td>
@@ -38,7 +38,7 @@
 
         @if($loop->iteration == count($this->equilibrecomptables))
         <tr style="color : @if($this->somme('debut', $step) != $this->somme('credit', $step)) red @else blue @endif">
-            <td colspan="2">
+            <td colspan="3">
                 Equilibrer la piece
             </td>
             <td>{{ $this->somme('debut', $value->step ) }}</td>
