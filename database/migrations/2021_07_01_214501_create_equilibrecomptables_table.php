@@ -16,9 +16,10 @@ class CreateEquilibrecomptablesTable extends Migration
         Schema::create('equilibrecomptables', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plancomptable_id');
+            $table->integer('step');
             $table->double('debut')->nullable();
             $table->double('credit')->nullable();
-            $table->foreign('parent_id')
+            $table->foreign('plancomptable_id')
                   ->references('id')
                   ->on('plancomptables')
                   ->onDelete('cascade');
