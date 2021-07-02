@@ -7,4 +7,5 @@
     </div>
  
     <x-equilibre-comptables.form-equilibre-comptable />
+    <x-equilibre-comptables.data-equilibre-comptable />
 </main>
