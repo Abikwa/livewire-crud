@@ -31,8 +31,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary close-btn"  data-dismiss="modal">Fermer</button>
-                <button type="button" wire:click.prevent="store" class="btn btn-primary close-modal">Valider</button>
+                <button type="button" class="btn btn-secondary btn-sm close-btn"  data-dismiss="modal">Fermer</button>
+                <button type="button" wire:click.prevent="store" class="btn btn-primary btn-sm close-modal">Valider</button>
             </div>
         </div>
     </div>

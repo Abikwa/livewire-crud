@@ -8,7 +8,7 @@ use App\Models\Plancomptable as PlancomptableModel;
 
 class PlanComptable extends Component
 {
-    public $plancomptable_id, $plancomptables, $plancomptableTrees, $collectif=true, $parent_id, $codecompte, $libelle;
+    public $plancomptable_id, $plancomptables, $ordonner, $plancomptableTrees, $collectif=true, $parent_id, $codecompte, $libelle;
     protected $rules;
 
     public function render()
@@ -26,6 +26,10 @@ class PlanComptable extends Component
         ];
     }
 
+    public function ordonner()
+    {
+        return $this->ordonner = ($this->ordonner == true) ? false : true;
+    }
     public function parent($parent_id)
     {
         $this->parent_id = $parent_id;
