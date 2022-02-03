@@ -15,6 +15,12 @@
                     <span data-feather="archive"></span>
                     Plan comptable
                 </a>
+             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->is('products'))  ? 'active' : '' }}" href="/products">
+                    <span data-feather="briefcase"></span>
+                    Product
+                </a>
             </li>
 
         </ul>

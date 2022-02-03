@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Plancomptables\PlanComptable;
+use App\Http\Livewire\Products\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('plancomptables', PlanComptable::class);
+Route::get('products', Product::class);

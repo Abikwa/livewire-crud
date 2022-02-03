@@ -18,12 +18,18 @@
             <!-- Main Content  -->  
             @if(isset($slot))
                 {{ $slot}}
+            @else
+                @yield('content')
             @endif
-            @yield('content')
             <!-- End Of Main Content -->
         </div>
     </div>
     @livewireScripts
+    <script type="text/javascript">
+        window.livewire.on('productStore', () => {
+            $('#exampleModal').modal('hide');
+        });
+    </script>
     <script src="{{ asset('js/jquery.min.js') }}"></script> 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
